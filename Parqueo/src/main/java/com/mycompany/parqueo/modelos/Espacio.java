@@ -4,6 +4,8 @@
  */
 package com.mycompany.parqueo.modelos;
 
+import java.time.LocalDateTime;
+
 /**
  *
  * @author wpena
@@ -17,6 +19,9 @@ public class Espacio
     }
     private int numeroEspacio;
     private Vehiculo vehiculo;
+    private LocalDateTime entrada;
+    
+    
     
     public int getNumeroEspacio() {
         return numeroEspacio;
@@ -34,6 +39,7 @@ public class Espacio
             return false;
        }
        vehiculo = valor;
+       entrada = LocalDateTime.now();
        return true;
    }
 
