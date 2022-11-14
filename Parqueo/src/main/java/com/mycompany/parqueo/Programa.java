@@ -32,6 +32,34 @@ public class Programa
             int opcion = entrada.nextInt();
             switch(opcion)
             {
+                //Registrar pisos
+                //Crea el arreglo unidimensional de ambito global para el programa
+                case 1:
+                    System.out.println("Digite la cantidad de pisos que tiene el parqueo. ");
+                    int largo = entrada.nextInt();
+                    pisos = new Piso[largo];
+                    break;
+                    
+                //Registrar espacios
+                //Indica la cantidad de espacios que existen en cada piso
+                case 2:
+                    for (int i = 0; i < pisos.length; i++)
+                    {
+                        System.out.println("Digite la cantidad de espacios que tiene el piso #" + (i +1) + ".");
+                        
+                        //Cantidad de filas en el piso
+                        System.out.print("Digite la cantidad de filas: ");
+                        int filas = entrada.nextInt();
+                        
+                        //Cantidad de columnas por fila en el piso
+                        System.out.print("Digite la cantidad de columnas: ");
+                        int columnas = entrada.nextInt();
+                        
+                        Piso piso = pisos[i];
+                        piso.crearEspacios(filas, columnas);
+                    }
+                    break;
+                //Salir    
                 case 0: continuar = false;
                 
                 //opcion no reconocida
