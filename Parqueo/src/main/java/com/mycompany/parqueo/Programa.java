@@ -47,7 +47,8 @@ public class Programa
                     break;
                 //Salir    
                 case 0: continuar = false;
-                
+                    System.out.println("Ha salido del programa.");
+                break;
                 //opcion no reconocida
                 default:
                     System.out.println("Opcion invalida. Por favor intentelo de nuevo");
@@ -61,7 +62,15 @@ public class Programa
     {
         System.out.println("Digite la cantidad de pisos que tiene el parqueo. ");
                     int largo = entrada.nextInt();
+                    
+                    //Crea el arreglo de pisos
                     pisos = new Piso[largo];
+                    
+                    //Inicializa el arreglo de los pisos
+                    for (int i = 0; i < largo; i++)
+                    {
+                        pisos[i] = new Piso((i+1));
+                    }
                     
     }
     //Indica la cantidad de espacios que existen en cada piso
