@@ -16,7 +16,7 @@ public class Piso
     }
     
     //arreglo bidimensional para manejar los espacios de los pisos
-    private Espacio espacio[][];
+    private Espacio espacios[][];
     private int filas;
     private int columnas;
     
@@ -36,7 +36,7 @@ public class Piso
     {
         this.filas = filas;
         this.columnas = columnas;
-        espacio = new Espacio[filas][columnas];
+        espacios = new Espacio[filas][columnas];
     }
     
     //Devuelve la cantidad de espacios en el piso
@@ -52,11 +52,19 @@ public class Piso
          {
              for (int j = 0; j < columnas; j++) 
              {
-                 if (espacios[i][j]  )
+                 //si el espaico esta ocupado entonces el contador aumentan en 1
+                 if (espacios[i][j].ocupado() )
                  {
-                     
+                     ocupados++; //ocupados +=1 | ocupados = ocupados + 1
                  }
              }
          }
+         return ocupados;
     }
+    //Devuelve la cantidad de espacios disponibles
+    public int getCantidadEspaciosDisponibles()
+    {
+       return getCantidadEspacios() - getCantidadEspaciosOcupados();
+    }
+    
 }

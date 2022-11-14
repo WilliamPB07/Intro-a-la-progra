@@ -45,7 +45,7 @@ public class Espacio
    
    //devuelve verdadero cuando vehiculo no es NULO
    //lo que indica que hay un vehiculo estacionado en el espacio
-   public boolean vehiculoEstacionad()
+   public boolean ocupado()
    {
        return vehiculo != null;
    }
