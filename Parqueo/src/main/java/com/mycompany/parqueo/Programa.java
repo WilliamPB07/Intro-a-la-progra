@@ -25,7 +25,19 @@ public class Programa
                                1. Registrar pisos del parqueo.
                                2. Registrar espacios en un piso.
                                3. Reservar espacio.
+                               0. Salir.
                                """);
+            //captura la opcion del usuario
+            int opcion = entrada.nextInt();
+            switch(opcion)
+            {
+                case 0: continuar = false;
+                
+                //opcion no reconocida
+                default:
+                    System.out.println("Opcion invalida. Por favor intentelo de nuevo");
+                
+            }
         }while(continuar);
     }
 }
