@@ -69,7 +69,7 @@ public class Programa
                     //Inicializa el arreglo de los pisos
                     for (int i = 0; i < largo; i++)
                     {
-                        pisos[i] = new Piso((i+1));
+                        pisos[i] = new Piso((i + 1));
                     }
                     
     }
