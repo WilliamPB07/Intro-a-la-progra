@@ -36,7 +36,21 @@ public class Piso
     {
         this.filas = filas;
         this.columnas = columnas;
+        
+        //Crea la matriz
         espacios = new Espacio[filas][columnas];
+        
+        //Inicializa la matriz
+        for (int i = 0; i < filas; i++)
+        {
+            
+            for (int j = 0; j < columnas; j++) 
+            {
+                //Asigna una nueva instancia de Espacio en cada celda de la matriz 
+                //
+                espacios[i][j] = new Espacio((i + 1) * (j + 1));
+            }
+        }
     }
     
     //Devuelve la cantidad de espacios en el piso

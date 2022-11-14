@@ -35,15 +35,39 @@ public class Programa
                 //Registrar pisos
                 //Crea el arreglo unidimensional de ambito global para el programa
                 case 1:
-                    System.out.println("Digite la cantidad de pisos que tiene el parqueo. ");
-                    int largo = entrada.nextInt();
-                    pisos = new Piso[largo];
-                    break;
+                    registrarPisos(entrada);
                     
                 //Registrar espacios
                 //Indica la cantidad de espacios que existen en cada piso
                 case 2:
                     for (int i = 0; i < pisos.length; i++)
+                    {
+                        registrarEntrada(entrada);
+                    }
+                    break;
+                //Salir    
+                case 0: continuar = false;
+                
+                //opcion no reconocida
+                default:
+                    System.out.println("Opcion invalida. Por favor intentelo de nuevo");
+                
+            }
+        }while(continuar);
+    }
+    
+     //Crea el arreglo unidimensional de ambito global para el programa
+    private void registrarPisos(Scanner entrada)
+    {
+        System.out.println("Digite la cantidad de pisos que tiene el parqueo. ");
+                    int largo = entrada.nextInt();
+                    pisos = new Piso[largo];
+                    
+    }
+    //Indica la cantidad de espacios que existen en cada piso
+    private void registrarEntrada(Scanner entrada)
+    {
+         for (int i = 0; i < pisos.length; i++)
                     {
                         System.out.println("Digite la cantidad de espacios que tiene el piso #" + (i +1) + ".");
                         
@@ -58,15 +82,5 @@ public class Programa
                         Piso piso = pisos[i];
                         piso.crearEspacios(filas, columnas);
                     }
-                    break;
-                //Salir    
-                case 0: continuar = false;
-                
-                //opcion no reconocida
-                default:
-                    System.out.println("Opcion invalida. Por favor intentelo de nuevo");
-                
-            }
-        }while(continuar);
     }
 }
