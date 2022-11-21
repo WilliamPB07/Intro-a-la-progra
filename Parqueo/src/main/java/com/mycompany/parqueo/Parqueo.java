@@ -7,7 +7,7 @@ package com.mycompany.parqueo;
 
 /**
  *
- * @author wpena
+ * @author WilliamPB
  */
 public class Parqueo {
 

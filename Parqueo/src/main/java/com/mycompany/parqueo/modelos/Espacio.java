@@ -9,7 +9,7 @@ import java.time.temporal.ChronoUnit;
 
 /**
  *
- * @author wpena
+ * @author WilliamPB
  */
 public class Espacio 
 {

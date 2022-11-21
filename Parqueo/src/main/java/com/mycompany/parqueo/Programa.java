@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author wpena
+ * @author WilliamPB
  */
 public class Programa 
 {

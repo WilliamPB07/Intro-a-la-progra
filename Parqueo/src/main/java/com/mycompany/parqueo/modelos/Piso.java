@@ -6,7 +6,7 @@ package com.mycompany.parqueo.modelos;
 
 /**
  *
- * @author wpena
+ * @author WilliamPB
  */
 public class Piso 
 {
