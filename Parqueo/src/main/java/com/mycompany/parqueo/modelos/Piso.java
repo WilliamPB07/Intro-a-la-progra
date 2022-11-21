@@ -81,4 +81,21 @@ public class Piso
        return getCantidadEspacios() - getCantidadEspaciosOcupados();
     }
     
+    //Devuelve el primer espaico disponiblen en el piso
+    public Espacio getEspacioDisponible()
+    {
+        for (int i = 0; i < filas; i++) 
+        {
+            for (int j = 0; j < columnas; j++) 
+            {
+                Espacio espacio = espacios[i][j];
+                if (!espacio.ocupado())
+                {
+                    return espacio;
+                }
+            }
+        }
+        
+        return null;
+    }
 }

@@ -92,4 +92,82 @@ public class Programa
                         piso.crearEspacios(filas, columnas);
                     }
     }
+    
+    //Busca el primer espacio vacio para reservarlo
+    private void reservarEspacio(Scanner entrada)
+    {
+        //Recorre cada piso buscando un espacio vacio
+        for (int i = 0; i < pisos.length; i++)
+        {
+           Piso piso = pisos[i];
+            if (piso.getCantidadEspaciosDisponibles() > 0)
+            {
+                Vehiculo vehiculo = crearVehiculo(entrada);
+                if (Vehiculo = null) {
+                    
+                }
+            }
+        }
+    }
+    
+    private Vehiculo crearVehiculo(Scanner entrada)
+    {
+        Vehiculo resultado = null;
+        boolean continuar = true;
+        do 
+        {
+            System.out.println
+            (
+                    """
+                    Elija el tipo de vehiculo:
+                    1.Motocibleta
+                    2.Sedan
+                    3.Todo Terreno
+                    4.Camion
+                    """        
+            );
+        int opcion = entrada.nextInt();
+        switch (opcion)
+        {
+            case 0:
+                continuar = false;
+                break;
+                
+            case 1: 
+                
+            case 2:
+                
+            case 3: 
+                
+            case 4: 
+                System.out.print("Escriba el número de placa: ");
+                String placa = entrada.nextLine();
+                
+                System.out.print("Escriba la marca del vehiculo: ");
+                String marca = entrada.nextLine();
+                
+                System.out.print("Escriba el modelo del vehiculo: ");
+                String modelo = entrada.nextLine();
+                
+                resultado = 
+                        //Condicion ternaria
+                        //Condicion ? Verdadero : Falso
+                        //Verdadero | falso => condicion
+                        opcion == 1
+                            ? new Motocicleta(placa, marca, modelo, 0)
+                            : opcion == 2
+                                    ? new Sedan(placa, marca, modelo, 0)
+                                    : opcion == 3
+                                        ? new TodoTerreno(placa, marca, modelo, 0)
+                                        : new Camion(placa, marca, modelo, 0);
+                                            
+                            
+                
+            default:
+                System.out.println("El tipo de vehiculo no esta definido.");
+                break;
+        }
+        } while (continuar);
+    }
+    
 }
