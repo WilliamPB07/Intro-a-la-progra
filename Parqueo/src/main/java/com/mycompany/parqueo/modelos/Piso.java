@@ -98,4 +98,25 @@ public class Piso
         
         return null;
     }
+    
+    public Espacio getEspacioOcupado(String placa)
+    {
+        for (int i = 0; i < filas; i++) 
+        {
+            for (int j = 0; j < columnas; j++)
+            {
+                Espacio espacio = espacios[i][j];
+                if (espacio.ocupado())
+                {
+                    if (espacio.esVehiculoEstacionado(placa))
+                    {
+                        return espacio;
+                    }
+   
+                }
+            }
+        }
+        
+        return null;
+    }
 }

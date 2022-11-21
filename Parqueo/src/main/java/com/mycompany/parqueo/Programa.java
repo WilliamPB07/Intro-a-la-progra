@@ -26,10 +26,12 @@ public class Programa
                                1. Registrar pisos del parqueo.
                                2. Registrar espacios en un piso.
                                3. Reservar espacio.
+                               4. Pagar
                                0. Salir.
                                """);
             //captura la opcion del usuario
             int opcion = entrada.nextInt();
+            boolean resultado = false;
             switch(opcion)
             {
                 //Registrar pisos
@@ -47,12 +49,16 @@ public class Programa
                     break;
                     
                 case 3:
-                    boolean resultado = reservarEspacio(entrada);
+                    resultado = reservarEspacio(entrada);
                     //Si el resultado de reservar espacio es FALSO
                     if (!resultado)
                     {
                         System.out.println("El vehiculo no puede ser estacionado. ");
                     }
+                    break;
+                    
+                case 4:
+                    resultado = pagarEspacio(entrada);
                     break;
                     
                 //Salir    
@@ -187,6 +193,29 @@ public class Programa
         }
         } while (continuar);
         return resultado;
+    }
+    
+    private boolean pagarEspacio(Scanner entrada)
+    {
+        entrada.nextLine();
+        System.out.print("Escriba la placa del vehiculo a buscar: ");
+        String placa = entrada.nextLine();
+        
+        for (int i = 0; i < pisos.length; i++)
+        {
+            Piso piso = pisos[i];
+            Espacio espacio = piso.getEspacioOcupado(placa);
+            if (espacio != null)
+            {
+                double montoPorPagar = espacio.liberar(1200);
+                System.out.println("El monto por pagar es: " + montoPorPagar);
+                return true;
+            }
+            
+        }
+        //Falso por defecto porque no se encontro la placa
+        return false;
+        
     }
     
 }

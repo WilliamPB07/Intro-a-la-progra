@@ -5,6 +5,7 @@
 package com.mycompany.parqueo.modelos;
 
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 /**
  *
@@ -49,6 +50,34 @@ public class Espacio
    {
        return vehiculo != null;
    }
+   
+   public double liberar(double montoPorHora)
+   {
+       if (vehiculo == null)
+       {
+          return 0D;   
+       }
+       
+       LocalDateTime salida = LocalDateTime.now();
+       long minutos = ChronoUnit.MINUTES.between(entrada, salida);
+       long horas = minutos / 60;
+       minutos = minutos % 60;
+       double resultado = (horas * montoPorHora);
+       if (minutos > 0)
+       {
+           resultado += montoPorHora;
+       }
+       vehiculo = null;
+       return resultado;               
+   }
 
-    
+    public boolean esVehiculoEstacionado(String placa)
+    {
+        if (vehiculo == null)
+        {
+            return false;
+        }
+        
+        return vehiculo.placa.equalsIgnoreCase(placa);
+    }
 }
