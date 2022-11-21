@@ -45,6 +45,16 @@ public class Programa
                         registrarEntrada(entrada);
                     }
                     break;
+                    
+                case 3:
+                    boolean resultado = reservarEspacio(entrada);
+                    //Si el resultado de reservar espacio es FALSO
+                    if (!resultado)
+                    {
+                        System.out.println("El vehiculo no puede ser estacionado. ");
+                    }
+                    break;
+                    
                 //Salir    
                 case 0: continuar = false;
                     System.out.println("Ha salido del programa.");
@@ -94,8 +104,9 @@ public class Programa
     }
     
     //Busca el primer espacio vacio para reservarlo
-    private void reservarEspacio(Scanner entrada)
+    private  boolean reservarEspacio(Scanner entrada)
     {
+        boolean resultado = false;
         //Recorre cada piso buscando un espacio vacio
         for (int i = 0; i < pisos.length; i++)
         {
@@ -103,11 +114,14 @@ public class Programa
             if (piso.getCantidadEspaciosDisponibles() > 0)
             {
                 Vehiculo vehiculo = crearVehiculo(entrada);
-                if (Vehiculo = null) {
-                    
+                if (vehiculo != null)
+                {
+                    Espacio espacio = piso.getEspacioDisponible();
+                    espacio.estacionarVehiculo(vehiculo);
                 }
             }
         }
+        return resultado;
     }
     
     private Vehiculo crearVehiculo(Scanner entrada)
@@ -140,6 +154,9 @@ public class Programa
             case 3: 
                 
             case 4: 
+                //parce para solventar el problema del brinco de la lectura de la placa
+                entrada.nextLine();
+                
                 System.out.print("Escriba el número de placa: ");
                 String placa = entrada.nextLine();
                 
@@ -161,13 +178,15 @@ public class Programa
                                         ? new TodoTerreno(placa, marca, modelo, 0)
                                         : new Camion(placa, marca, modelo, 0);
                                             
-                            
+                continuar = false;
+                break;
                 
             default:
                 System.out.println("El tipo de vehiculo no esta definido.");
                 break;
         }
         } while (continuar);
+        return resultado;
     }
     
 }
